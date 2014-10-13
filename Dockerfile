@@ -1,8 +1,6 @@
-FROM dockerfile/ubuntu
+FROM debian:jessie
 
-RUN add-apt-repository -y ppa:nginx/stable
-RUN apt-get update
-RUN apt-get install -y nginx
+RUN apt-get update && apt-get install -y nginx
 
 ADD bin/ /usr/sbin/
 RUN configure-nginx.sh
